@@ -18,15 +18,18 @@ import java.util.Map;
  * @Date 2020/3/4
  **/
 public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+
+
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        if (request.getContentType().equals(MediaType.APPLICATION_JSON_VALUE)){
+        if (request.getContentType().equals(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                ||request.getContentType().equals(MediaType.APPLICATION_JSON_VALUE)){
             ObjectMapper objectMapper=new ObjectMapper();
             UsernamePasswordAuthenticationToken authRequest=null;
             try(InputStream is=request.getInputStream()) {
                 Map<String,String> authenticationBean= objectMapper.readValue(is, Map.class);
                 authRequest=new UsernamePasswordAuthenticationToken(
-                        authenticationBean.get("username"),authenticationBean.get("password")
+                        authenticationBean.get("username"),authenticationBean.get("pwd")
                 );
             }catch (IOException e){
                 e.printStackTrace();
@@ -37,7 +40,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
             }
         }else {
            return super.attemptAuthentication(request,response);
-
         }
     }
+
 }

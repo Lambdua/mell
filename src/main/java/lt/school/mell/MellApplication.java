@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("lt.school.mell.mapper")
+@MapperScan("lt.school.mell")
 public class MellApplication {
 
     public static void main(String[] args) {
