@@ -3,6 +3,8 @@ package lt.school.mell.common.entity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -63,7 +65,7 @@ public class Users implements Serializable {
     @ApiModelProperty("个性签名")
     private String signature;
 
-    @ApiModelProperty("是否开启匹配 0否1开2成功")
+    @ApiModelProperty("是否开启匹配 0否1开2成功3失败")
     private String matchFlag;
 
     @ApiModelProperty(value = "逻辑删除标志 0假1真", hidden = true)
@@ -78,4 +80,36 @@ public class Users implements Serializable {
     @ApiModelProperty("个人信息修改日期")
     private Date updateDate;
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (!(o instanceof Users)) {
+            return false;
+        }
+
+        Users users = (Users) o;
+
+        return new EqualsBuilder()
+                .append(id, users.id)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(id)
+                .toHashCode();
+    }
+
+
+    //建立关系后进行的用户预处理更新操作
+    public void relateBuildHandler(){
+        this.setUpdateDate(new Date());
+        this.setMatchFlag("2");
+        this.setWantUid("");
+    }
 }

@@ -2,9 +2,11 @@ package lt.school.mell.match.service;
 
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import lt.school.mell.common.entity.MatchDemand;
 import lt.school.mell.common.entity.URelate;
 import lt.school.mell.common.entity.Users;
 import lt.school.mell.common.enums.BaseEnum;
+import lt.school.mell.common.enums.MatchEnum;
 import lt.school.mell.common.enums.UsersStateEnum;
 import lt.school.mell.common.mapper.URelateMapper;
 import lt.school.mell.common.mapper.UsersMapper;
@@ -24,9 +26,11 @@ public class MatchService {
     URelateMapper uRelateMapper;
     @Autowired
     UsersMapper usersMapper;
+    @Autowired
+    MatchDemandService matchDemandService;
+//    MatchDemandMapper matchDemandMapper;
 
-
-    public BaseEnum startMatch(String userId) {
+    public BaseEnum startMatch(String userId, MatchDemand matchDemand) {
         Users users = usersMapper.selectById(userId);
         //检测是否已有
         URelate uRelate = uRelateMapper.selectOne(Wrappers.lambdaQuery(URelate.class)
@@ -45,9 +49,13 @@ public class MatchService {
         if (StringUtils.isBlank(users.getWantUid())) {
             return UsersStateEnum.WANT_HAVE();
         } else {
-            users.setMatchFlag("0");
+
+            //上传匹配信息
+            matchDemandService.saveOrUpdate(matchDemand);
+
+            users.setMatchFlag("1");
             usersMapper.updateById(users);
-            return UsersStateEnum.UPDATE_SUCCESS(userId);
+            return UsersStateEnum.UPDATE_SUCCESS(users);
         }
     }
 
@@ -115,15 +123,46 @@ public class MatchService {
         return UsersStateEnum.UPDATE_SUCCESS();
     }
 
+    @Transactional(readOnly = false)
     public BaseEnum denyMatch(String userId, String otherId) {
-//        Users own = usersMapper.selectById(userId);
-        Users otherUsers = usersMapper.selectById(otherId);
-        if (!otherUsers.getWantUid().equals(userId)) {
+
+
+        Users matchUsers = usersMapper.selectById(otherId);
+        if (!matchUsers.getWantUid().equals(userId)) {
             return UsersStateEnum.UPDATE_SUCCESS();
         }
-        otherUsers.setWantUid("");
-        usersMapper.updateById(otherUsers);
+        matchUsers.setWantUid("");
+        matchUsers.setMatchFlag("3");
+        usersMapper.updateById(matchUsers);
         return UsersStateEnum.UPDATE_SUCCESS();
+    }
+
+    @Transactional(readOnly = false)
+    public BaseEnum cancleMatch(String userId) {
+        //更新用户
+        Users users = usersMapper.selectById(userId);
+        users.setMatchFlag("0");
+        users.setWantUid("");
+        usersMapper.updateById(users);
+
+        //更新匹配关系
+        List<URelate> uRelates = uRelateMapper.selectList(Wrappers.lambdaQuery(URelate.class)
+                .eq(URelate::getUserId1, userId)
+                .or().eq(URelate::getUserId2, userId));
+        if (uRelates.size() > 0) {
+            //存在对方用户
+            URelate uRelate = uRelates.get(0);
+            //更新对方的匹配关系
+            String matchUsersId = uRelate.getUserId1().equals(userId) ? uRelate.getUserId2() : uRelate.getUserId1();
+            Users matchUsers = new Users(matchUsersId);
+            matchUsers.setMatchFlag("0");
+            matchUsers.setWantUid("");
+            usersMapper.updateById(matchUsers);
+        } else {
+            //尚没有匹配成功，直接删除匹配要求
+            matchDemandService.deleteByUserId(userId);
+        }
+        return MatchEnum.UPDATE_SUCCESS(users);
     }
 }
 
