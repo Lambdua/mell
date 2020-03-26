@@ -4,8 +4,8 @@ package lt.school.mell.common.enums;
  * @author liangtao
  * @Date 2020/3/14
  **/
-public class UsersStateEnum<T> extends BaseEnum {
-    public UsersStateEnum(int statue, Boolean success, String msg, Object data) {
+public class UsersStateEnum<T> extends BaseEnum<T> {
+    public UsersStateEnum(int statue, Boolean success, String msg, T data) {
         super(statue, success, msg, data);
     }
 
@@ -30,20 +30,20 @@ public class UsersStateEnum<T> extends BaseEnum {
     }
 
     public static <T> BaseEnum LOGIN_SUCCESS(T data) {
-        return new BaseEnum(200,true, "登录成功", data);
+        return new BaseEnum(200, true, "登录成功",getMap(data));
     }
 
 
     public static <T> BaseEnum REGISTE_SUCCESS(T data) {
-        return new BaseEnum(200,true, "注册成功", data);
+        return new BaseEnum(200, true, "注册成功", getMap(data));
     }
 
     public static BaseEnum NULL_MATCH_USERS() {
-        return new BaseEnum(-305,true, "尚未有匹配用户", null);
+        return new BaseEnum(-305, true, "尚未有匹配用户", null);
     }
 
 
     public static BaseEnum GET_EMPTR() {
-        return new BaseEnum(-306,false,"查询为空",null);
+        return new BaseEnum(-306, false, "查询为空", null);
     }
 }

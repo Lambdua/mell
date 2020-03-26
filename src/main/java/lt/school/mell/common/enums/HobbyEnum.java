@@ -4,10 +4,9 @@ package lt.school.mell.common.enums;
  * @author liangtao
  * @Date 2020/3/16
  **/
-public class HobbyEnum<T> extends BaseEnum {
+public class HobbyEnum<T> extends BaseEnum<T> {
 
-
-    public HobbyEnum(int statue, Boolean success, String msg, Object data) {
-        super(statue, success, msg, data);
+    public HobbyEnum(int status, Boolean success, String msg, T data) {
+        super(status, success, msg, data);
     }
 }

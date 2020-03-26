@@ -1,17 +1,19 @@
 package lt.school.mell.userManage.service;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import lt.school.mell.common.enums.BaseEnum;
-import lt.school.mell.common.enums.HobbyEnum;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lt.school.mell.common.entity.Hobby;
 import lt.school.mell.common.entity.Users;
 import lt.school.mell.common.entity.UsersHobby;
+import lt.school.mell.common.enums.BaseEnum;
+import lt.school.mell.common.enums.HobbyEnum;
 import lt.school.mell.common.mapper.HobbyMapper;
 import lt.school.mell.common.mapper.UsersHobbyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author liangtao
@@ -38,13 +40,16 @@ public class HobbyService  {
         return null;
     }
 
-    public BaseEnum<List<Hobby>> findList(Hobby entity) {
+    public BaseEnum<Map<String,List>> findList(Hobby entity) {
 
-        List<Hobby> hobbies = hobbyMapper.selectList(new QueryWrapper<>(null));
-        if (hobbies != null) {
-            return HobbyEnum.GET_SUCCESS(hobbies);
+        Map<String,Object> result=new HashMap<>();
+
+        List<Hobby> hobbiesFather = hobbyMapper.selectList(Wrappers.lambdaQuery(Hobby.class).eq(Hobby::getHobbyLevel,1));
+        for (Hobby hobby : hobbiesFather) {
+            List<Hobby> childHobbies = hobbyMapper.selectList(Wrappers.lambdaQuery(Hobby.class).eq(Hobby::getParentId, hobby.getId()));
+            result.put(hobby.getName(),childHobbies);
         }
-        return (HobbyEnum<List<Hobby>>) HobbyEnum.OPERATION_FAILURE();
+        return HobbyEnum.GET_SUCCESS(result);
     }
 
 /*

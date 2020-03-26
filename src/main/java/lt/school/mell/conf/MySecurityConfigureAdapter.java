@@ -2,6 +2,7 @@ package lt.school.mell.conf;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lt.school.mell.common.ajaxBean.RespBean;
+import lt.school.mell.common.enums.UsersStateEnum;
 import lt.school.mell.security.CustomAuthenticationFilter;
 import lt.school.mell.security.MyPasswordEncoder;
 import lt.school.mell.security.MyUserDetailService;
@@ -45,8 +46,8 @@ public class MySecurityConfigureAdapter extends WebSecurityConfigurerAdapter {
         http.cors().and()
                 .antMatcher("/**").authorizeRequests()
                 .antMatchers("/user/open/**").permitAll()
-                .antMatchers("/user/hobby/test/**").permitAll()
-//                .antMatchers("//hobby/test/**").permitAll()
+//                .antMatchers("/user/hobby/test/**").permitAll()
+//                .antMatchers("/hobby/test/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin() //开启登录校验
@@ -69,7 +70,7 @@ public class MySecurityConfigureAdapter extends WebSecurityConfigurerAdapter {
                 .and()
                 .exceptionHandling()
                 .accessDeniedHandler(((request, response, accessDeniedException) -> {
-                    RespBean error = RespBean.failure("权限不足");
+                    RespBean error = RespBean.failure("权限不足",50008);
                     response.setContentType("application/json;charset=utf-8");
                     PrintWriter out = response.getWriter();
                     out.write(new ObjectMapper().writeValueAsString(error));
@@ -87,6 +88,7 @@ public class MySecurityConfigureAdapter extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailService).passwordEncoder(passwordEncoder());
     }
+
 
 
     @Override
@@ -121,7 +123,7 @@ public class MySecurityConfigureAdapter extends WebSecurityConfigurerAdapter {
             if (exception instanceof BadCredentialsException ||
                     exception instanceof UsernameNotFoundException) {
                 //用户,密码错误
-                RespBean error = RespBean.failure("用户名或者密码错误");
+                RespBean error = RespBean.result(UsersStateEnum.USERNAME_OR_PWD_MISTAKE());
                 response.setContentType("application/json;charset=utf-8");
                 PrintWriter out = response.getWriter();
                 out.write(new ObjectMapper().writeValueAsString(error));
@@ -131,7 +133,7 @@ public class MySecurityConfigureAdapter extends WebSecurityConfigurerAdapter {
             if (exception instanceof CredentialsExpiredException) {
                 response.sendRedirect("/login");
             } else {
-                RespBean error = RespBean.failure("登录失败");
+                RespBean error = RespBean.result(UsersStateEnum.OPERATION_FAILURE());
                 response.setContentType("application/json;charset=utf-8");
                 PrintWriter out = response.getWriter();
                 out.write(new ObjectMapper().writeValueAsString(error));

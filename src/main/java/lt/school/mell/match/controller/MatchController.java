@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2020/3/18
  **/
 @RestController
-@RequestMapping("/match/test")
+@RequestMapping("/match")
 @Api(tags = "匹配模块")
 public class MatchController {
     @Autowired

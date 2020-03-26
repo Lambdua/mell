@@ -41,14 +41,14 @@ public class MatchJob {
     /*
         每隔三小时执行一次
      */
-    @Scheduled(cron = "*/10 * * * * ? ")
+    @Scheduled(cron = "* * */3 * * ? ")
     public void matchScheduled() {
-        log.info("匹配开始");
+        log.info("===================匹配开始=======================");
 
         //查询所有开启匹配的用户
         List<Users> usersList = usersMapper.selectList(Wrappers.lambdaQuery(Users.class)
                 .eq(Users::getMatchFlag, "1")
-                .and(i -> i.eq(Users::getWantUid, "").or().eq(Users::getWantUid, null)));
+                .and(i -> i.eq(Users::getWantUid, "").or().isNull(Users::getWantUid)));
 
         Map<Users, MatchDemand> usersMap = new HashMap<>();
         usersList.forEach(u -> {
@@ -120,6 +120,7 @@ public class MatchJob {
             }
         }
 
+        log.info("=============匹配结束=======================");
 
     }
 

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
  **/
 @RestController
 @Api(tags = "日记管理")
-@RequestMapping("/diary/test")
+@RequestMapping("/diary")
 public class DiaryController {
     @Autowired
     DiaryService diaryService;

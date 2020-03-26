@@ -1,0 +1,71 @@
+POST http://localhost:8181/login
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{ username:"321", password:"123" }
+
+###
+
+POST http://localhost:8181/login
+Accept: */*
+Cache-Control: no-cache
+
+{ username:"321", password:"123" }
+
+###
+
+POST http://localhost:8181/login
+Accept: */*
+Cache-Control: no-cache
+
+{ username:"321", password:"123" }
+
+###
+
+GET http://localhost:8181
+Accept: */*
+Cache-Control: no-cache
+
+{ username:"321", password:"123" }
+
+<> 2020-03-03T053737.200.txt
+
+###
+
+GET http://localhost:8181?username=321&password=123
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-03T053522.200.txt
+
+###
+
+POST http://localhost:8181?username=321&password=123
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+POST http://localhost:8181/login?username=321&password=123
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-03T053306.200.txt
+
+###
+
+GET http://localhost:8181/login
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-03-03T053053.200.txt
+
+###
+
+GET http://localhost:8080/login
+Accept: */*
+Cache-Control: no-cache
+
+###
+

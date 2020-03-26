@@ -17,29 +17,29 @@ public final class RespBean<T> {
     @ApiModelProperty("对应状态码信息")
     private int status;
     @ApiModelProperty("结果描述信息")
-    private String msg;
+    private String message;
     @ApiModelProperty("业务数据")
     private T data;
 
-    public RespBean(boolean success, int status, String msg, T data) {
+    public RespBean(boolean success, int status, String message, T data) {
         this.success = success;
         this.status = status;
-        this.msg = msg;
+        this.message = message;
         this.data = data;
     }
 
-    public RespBean(boolean success, String msg, T data) {
+    public RespBean(boolean success, String message, T data) {
         this.success = success;
-        this.msg = msg;
+        this.message = message;
         this.data = data;
     }
 
     public static <T> RespBean<T> success(T data) {
-        return new RespBean<>(true, "SUCCESS", data);
+        return new RespBean<>(true, 200, "SUCCESS", data);
     }
 
     public static RespBean success(String msg) {
-        return new RespBean(true, msg, null);
+        return new RespBean(true, 200,msg, null);
     }
 
     public static <T> RespBean<T> success(String message, T data) {
@@ -56,8 +56,8 @@ public final class RespBean<T> {
     }
 
 
-    public static RespBean failure(String message) {
-        return new RespBean(false, message, null);
+    public static RespBean failure(String message,Integer status) {
+        return new RespBean(false, status,message, null);
     }
 
     public static <T> RespBean<T> result(BaseEnum<T> baseEnum) {

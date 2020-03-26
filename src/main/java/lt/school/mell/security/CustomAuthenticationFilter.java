@@ -29,7 +29,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
             try(InputStream is=request.getInputStream()) {
                 Map<String,String> authenticationBean= objectMapper.readValue(is, Map.class);
                 authRequest=new UsernamePasswordAuthenticationToken(
-                        authenticationBean.get("username"),authenticationBean.get("pwd")
+                        authenticationBean.get("username"),authenticationBean.get("password")
                 );
             }catch (IOException e){
                 e.printStackTrace();

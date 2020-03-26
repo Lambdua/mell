@@ -24,7 +24,7 @@ import java.util.List;
 @Service
 @Transactional(readOnly = true)
 @Slf4j
-public class UsersService  {
+public class UsersService {
 
     Date today = new Date();
 
@@ -33,8 +33,13 @@ public class UsersService  {
     @Autowired
     MyPasswordEncoder passwordEncoder;
 
-    public UsersStateEnum get(String id) {
-        return null;
+    public BaseEnum get(String id) {
+
+        Users users = usersMapper.selectById(id);
+        if (users != null) {
+            return UsersStateEnum.GET_SUCCESS(users);
+        }
+        return UsersStateEnum.GET_EMPTR();
     }
 
     @Transactional(readOnly = false)
@@ -51,6 +56,7 @@ public class UsersService  {
                 //注册
                 entity.setPassword(passwordEncoder.encode(entity.getPassword()));
                 if (usersMapper.insert(entity) == 1) {
+                    entity=usersMapper.selectOne(Wrappers.lambdaQuery(Users.class).eq(Users::getUsername,entity.getUsername()));
                     return UsersStateEnum.REGISTE_SUCCESS(entity);
                 } else {
                     return UsersStateEnum.UNKONW_ERROR();
@@ -91,11 +97,11 @@ public class UsersService  {
         return usersMapper.selectOne(new QueryWrapper<>(users));
     }
 
-    public BaseEnum init(String username) {
+    public Users init(String username) {
         Users users = usersMapper.selectOne(Wrappers.lambdaQuery(Users.class).eq(Users::getUsername, username));
-        return UsersStateEnum.GET_SUCCESS(username);
+        return users;
+//        return UsersStateEnum.GET_SUCCESS(users);
     }
-
 
 
 }

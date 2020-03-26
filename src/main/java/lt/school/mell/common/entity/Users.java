@@ -1,10 +1,12 @@
 package lt.school.mell.common.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -75,10 +77,19 @@ public class Users implements Serializable {
     private String wantUid;
 
     @ApiModelProperty("创建日期")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createDate;
 
     @ApiModelProperty("个人信息修改日期")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date updateDate;
+
+    @ApiModelProperty("生日")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date birthday;
 
 
     @Override
@@ -86,13 +97,10 @@ public class Users implements Serializable {
         if (this == o) {
             return true;
         }
-
         if (!(o instanceof Users)) {
             return false;
         }
-
         Users users = (Users) o;
-
         return new EqualsBuilder()
                 .append(id, users.id)
                 .isEquals();
