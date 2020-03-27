@@ -28,7 +28,8 @@ public class DiaryController {
     @PostMapping("/saveDiary")
     @ApiOperation("日记的新增")
     public RespBean saveDiary(
-            @ApiParam("新增日记") Diary diary) {
+            @ApiParam("新增日记")
+            @RequestBody Diary diary) {
         if (diary == null || diary.getUserId() == null) {
             return RespBean.result(DiaryEnum.GET_PARAM_FAILURE());
         }
@@ -94,7 +95,7 @@ public class DiaryController {
             @ApiParam("页码") @RequestParam(defaultValue = "1") int pageNum,
             @ApiParam("每页条数") @RequestParam(defaultValue = "10") int pageSize) {
 
-        return RespBean.result(diaryService.findListByOtherSide(userId,pageNum,pageSize));
+        return RespBean.result(diaryService.findListByOtherSide(userId, pageNum, pageSize));
     }
 
 

@@ -2,42 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="024b179f-b74b-4394-9c0e-b37c562a6c33" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mell.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mell.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/MellApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/MellApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/ajaxBean/RespBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/ajaxBean/RespBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/Diary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/Diary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/DiaryComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/DiaryComment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/DingJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/DingJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/Hobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/Hobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/ServeyResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/ServeyResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/SurveyAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/SurveyAnswer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/SurveyName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/SurveyName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/SurveyQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/SurveyQuestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/URelate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/URelate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/UserServeyCollect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/UserServeyCollect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/UsersHobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/UsersHobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/BaseEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/BaseEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/DiaryEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/DiaryEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/HobbyEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/HobbyEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/UsersStateEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/UsersStateEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/conf/CrosConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/conf/CrosConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/conf/MySecurityConfigureAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/conf/MySecurityConfigureAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/diary/controller/DiaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/diary/controller/DiaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/match/controller/MatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/match/controller/MatchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/match/job/MatchJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/match/job/MatchJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/security/CustomAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/security/CustomAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/userManage/controller/HobbyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/userManage/controller/HobbyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/userManage/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/userManage/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/userManage/service/HobbyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/userManage/service/HobbyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/userManage/service/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/userManage/service/UsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/lt/school/mell/controller/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/lt/school/mell/controller/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/lt/school/mell/mapper/UsersMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/lt/school/mell/mapper/UsersMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lt/school/mell/diary/service/DiaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lt/school/mell/diary/service/DiaryService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -81,63 +50,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/Hobby.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-88">
-              <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/MatchDemand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/ServeyResult.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/SurveyAnswer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/SurveyName.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/SurveyQuestion.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/URelate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
+            <state relative-caret-position="682">
               <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
             </state>
           </provider>
@@ -146,7 +61,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/Users.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="418">
               <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -158,17 +73,84 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/UserServeyCollect.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
+            <state relative-caret-position="814">
               <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/UsersHobby.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+            <state relative-caret-position="704">
+              <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/diary/controller/DiaryController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/diary/service/DiaryService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="94" column="44" selection-start-line="94" selection-start-column="44" selection-end-line="94" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/ajaxBean/RespBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="44" column="30" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/DiaryEnum.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+              <folding>
+                <element signature="e#205#206#0" expanded="true" />
+                <element signature="e#254#255#0" expanded="true" />
+                <element signature="e#297#298#0" expanded="true" />
+                <element signature="e#359#360#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/BaseEnum.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="89">
+              <caret line="54" column="27" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#992#993#0" expanded="true" />
+                <element signature="e#1060#1061#0" expanded="true" />
+                <element signature="e#1212#1213#0" expanded="true" />
+                <element signature="e#1272#1273#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/Diary.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="44" column="41" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -211,7 +193,6 @@
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/service/BaseService.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/mapper/URelateMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/conf/Swagger2Config.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/diary/service/DiaryService.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/MatchEnum.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/mapper/MatchDemandMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/MatchDemand.java" />
@@ -228,12 +209,10 @@
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/conf/CrosConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/conf/WebIntercepter.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/utils/ReturnMapGet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/DiaryEnum.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/UsersStateEnum.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/BaseEnum.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/conf/MySecurityConfigureAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/square/controller/SquareController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/diary/controller/DiaryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/match/controller/MatchController.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/match/job/MatchJob.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/MellApplication.java" />
@@ -244,7 +223,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/userManage/controller/HobbyController.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/Users.java" />
-        <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/Diary.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/DiaryComment.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/DingJob.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/ServeyResult.java" />
@@ -254,6 +232,10 @@
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/URelate.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/UserServeyCollect.java" />
         <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/UsersHobby.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/Diary.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/DiaryEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/diary/service/DiaryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/lt/school/mell/diary/controller/DiaryController.java" />
       </list>
     </option>
   </component>
@@ -288,10 +270,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="y" value="675" />
-    <option name="width" value="2160" />
-    <option name="height" value="690" />
+    <option name="y" value="21" />
+    <option name="width" value="1920" />
+    <option name="height" value="990" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -300,113 +281,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="mell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mell" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mell" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mell" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mell" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mell" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mell" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lt" type="462c0819:PsiDirectoryNode" />
-              <item name="school" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mell" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lt" type="462c0819:PsiDirectoryNode" />
-              <item name="school" type="462c0819:PsiDirectoryNode" />
-              <item name="mell" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mell" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lt" type="462c0819:PsiDirectoryNode" />
-              <item name="school" type="462c0819:PsiDirectoryNode" />
-              <item name="mell" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mell" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lt" type="462c0819:PsiDirectoryNode" />
-              <item name="school" type="462c0819:PsiDirectoryNode" />
-              <item name="mell" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mell" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lt" type="462c0819:PsiDirectoryNode" />
-              <item name="school" type="462c0819:PsiDirectoryNode" />
-              <item name="mell" type="462c0819:PsiDirectoryNode" />
-              <item name="userManage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mell" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mell" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lt" type="462c0819:PsiDirectoryNode" />
-              <item name="school" type="462c0819:PsiDirectoryNode" />
-              <item name="mell" type="462c0819:PsiDirectoryNode" />
-              <item name="userManage" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="CatdeaLogs" />
-      <pane id="PackagesPane" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="oracle" />
@@ -419,7 +294,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../vue-element-admin" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -823,7 +698,9 @@
       <workItem from="1585039494059" duration="2559000" />
       <workItem from="1585098886430" duration="14219000" />
       <workItem from="1585185260679" duration="4515000" />
-      <workItem from="1585202527951" duration="3716000" />
+      <workItem from="1585202527951" duration="6711000" />
+      <workItem from="1585273390164" duration="1155000" />
+      <workItem from="1585285693794" duration="3570000" />
     </task>
     <servers />
   </component>
@@ -860,7 +737,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220563000" />
+    <option name="totallyTimeSpent" value="228283000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -872,10 +749,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1455" height="935" extended-state="6" />
+    <frame x="-7" y="-7" width="1455" height="935" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49604744" visible="true" weight="0.2857143" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49604744" weight="0.2857143" />
       <window_info id="Structure" order="1" sideWeight="0.50395256" side_tool="true" weight="0.26633167" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -885,8 +762,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.283208" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.48370928" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.5150376" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.38220552" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.40225562" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32957393" />
@@ -978,17 +855,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.2.4.RELEASE/spring-webmvc-5.2.4.RELEASE-sources.jar!/org/springframework/web/servlet/config/annotation/DelegatingWebMvcConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="82" column="25" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="25" />
-          <folding>
-            <element signature="e#2951#2952#0" expanded="true" />
-            <element signature="e#3000#3001#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.2.4.RELEASE/spring-webmvc-5.2.4.RELEASE-sources.jar!/org/springframework/web/servlet/config/annotation/WebMvcConfigurerComposite.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="822">
@@ -1000,13 +866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
           <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/ajaxBean/RespBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="44" column="30" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1071,17 +930,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/DiaryEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
-          <folding>
-            <element signature="e#205#206#0" expanded="true" />
-            <element signature="e#254#255#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/HobbyEnum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1133,13 +981,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/diary/controller/DiaryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1034">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1269,18 +1110,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/BaseEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1144">
-          <caret line="75" column="42" selection-start-line="75" selection-start-column="42" selection-end-line="75" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#992#993#0" expanded="true" />
-            <element signature="e#1060#1061#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/userManage/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1623">
@@ -1298,13 +1127,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/Diary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
@@ -1331,49 +1153,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/MatchDemand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
+        <state relative-caret-position="660">
           <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/ServeyResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
+        <state relative-caret-position="814">
           <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/SurveyAnswer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
+        <state relative-caret-position="814">
           <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/SurveyName.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
+        <state relative-caret-position="748">
           <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/SurveyQuestion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
+        <state relative-caret-position="748">
           <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/URelate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
+        <state relative-caret-position="682">
           <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/Users.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="418">
           <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1383,15 +1205,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/UserServeyCollect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
+        <state relative-caret-position="814">
           <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/UsersHobby.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+        <state relative-caret-position="704">
+          <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/BaseEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="54" column="27" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#992#993#0" expanded="true" />
+            <element signature="e#1060#1061#0" expanded="true" />
+            <element signature="e#1212#1213#0" expanded="true" />
+            <element signature="e#1272#1273#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/entity/Diary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="44" column="41" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/enums/DiaryEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <folding>
+            <element signature="e#205#206#0" expanded="true" />
+            <element signature="e#254#255#0" expanded="true" />
+            <element signature="e#297#298#0" expanded="true" />
+            <element signature="e#359#360#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/common/ajaxBean/RespBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="44" column="30" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/diary/service/DiaryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="94" column="44" selection-start-line="94" selection-start-column="44" selection-end-line="94" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/lt/school/mell/diary/controller/DiaryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
         </state>
       </provider>
     </entry>

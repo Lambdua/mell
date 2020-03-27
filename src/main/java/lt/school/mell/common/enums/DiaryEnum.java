@@ -12,7 +12,7 @@ public class DiaryEnum<T> extends BaseEnum<T> {
     }
 
     public static BaseEnum QUERY_NULL() {
-        return new BaseEnum(-200, false, "查询为空", null);
+        return new BaseEnum(202, false, "查询为空", null);
     }
 
 //    public static BaseEnum

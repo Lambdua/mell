@@ -92,7 +92,7 @@ public class DiaryService {
     public BaseEnum<Diary> findByDate(String createDate, String userId) {
         Diary diary = diaryMapper.selectOne(new QueryWrapper<Diary>().lambda()
                 .eq(Diary::getUserId, userId)
-                .and(i -> i.apply("where to_char('create_date',yyyyMMdd) = {0}", createDate)));
+                .and(i -> i.apply(" to_char(create_date,'yyyy-MM-dd') = {0}", createDate)));
         if (diary != null) {
             return BaseEnum.GET_SUCCESS(diary);
         } else {
