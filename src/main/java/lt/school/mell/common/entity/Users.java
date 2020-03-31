@@ -1,6 +1,7 @@
 package lt.school.mell.common.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -35,6 +36,7 @@ public class Users implements Serializable {
     private String username;
 
     @ApiModelProperty("密码")
+    @JsonIgnore
     private String password;
 
     @ApiModelProperty("邮箱")
@@ -71,6 +73,7 @@ public class Users implements Serializable {
     private String matchFlag;
 
     @ApiModelProperty(value = "逻辑删除标志 0假1真", hidden = true)
+    @JsonIgnore
     private String delFlag;
 
     @ApiModelProperty("请求匹配的用户id")

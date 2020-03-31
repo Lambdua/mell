@@ -1,7 +1,6 @@
 package lt.school.mell.userManage.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import lt.school.mell.common.entity.Users;
@@ -45,15 +44,15 @@ public class UsersService {
     @Transactional(readOnly = false)
     public BaseEnum saveOrUpdate(Users entity) {
 
-        Users user = usersMapper.selectOne(new QueryWrapper<Users>().lambda().eq(Users::getUsername, entity.getUsername()));
-        if (user != null) {
-            return UsersStateEnum.USERNAME_EXISTS();
-        }
 
         entity.setUpdateDate(today);
         try {
             if (StringUtils.isBlank(entity.getId())) {
                 //注册
+                Users user = usersMapper.selectOne(new QueryWrapper<Users>().lambda().eq(Users::getUsername, entity.getUsername()));
+                if (user != null) {
+                    return UsersStateEnum.USERNAME_EXISTS();
+                }
                 entity.setPassword(passwordEncoder.encode(entity.getPassword()));
                 if (usersMapper.insert(entity) == 1) {
                     entity=usersMapper.selectOne(Wrappers.lambdaQuery(Users.class).eq(Users::getUsername,entity.getUsername()));
@@ -62,7 +61,7 @@ public class UsersService {
                     return UsersStateEnum.UNKONW_ERROR();
                 }
             } else {
-                if (usersMapper.update(entity, new UpdateWrapper<>(entity)) == 1) {
+                if (usersMapper.update(entity, Wrappers.lambdaQuery(Users.class).eq(Users::getId,entity.getId())) == 1) {
                     return UsersStateEnum.UPDATE_SUCCESS(entity);
                 } else {
                     return UsersStateEnum.OPERATION_FAILURE();

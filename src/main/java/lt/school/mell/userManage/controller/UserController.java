@@ -10,10 +10,7 @@ import lt.school.mell.common.enums.BaseEnum;
 import lt.school.mell.common.enums.UsersStateEnum;
 import lt.school.mell.userManage.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -85,5 +82,13 @@ public class UserController {
     public RespBean getInfo(String token) {
         BaseEnum usersStateEnum = usersService.get(token);
         return RespBean.result(usersStateEnum);
+    }
+
+
+    @PostMapping("updateUsers")
+    @ApiOperation("用户信息的更新,需要用户名和id")
+    public RespBean updateUsers(@RequestBody Users users){
+        BaseEnum baseEnum = usersService.saveOrUpdate(users);
+        return RespBean.result(baseEnum);
     }
 }

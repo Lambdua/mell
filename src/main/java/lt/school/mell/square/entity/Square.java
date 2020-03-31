@@ -12,14 +12,17 @@ import java.util.List;
  **/
 @Data
 public class Square {
-
+    String nickName;
+    String avatar;
     Diary diary;
     List<DiaryComment> diaryCommentList;
-    public Square(Diary diary, List<DiaryComment> diaryCommentList) {
+
+    public Square(String nickName, String avatar, Diary diary, List<DiaryComment> diaryCommentList) {
+        this.nickName = nickName;
+        this.avatar = avatar;
         this.diary = diary;
         this.diaryCommentList = diaryCommentList;
     }
-
 
 
 }

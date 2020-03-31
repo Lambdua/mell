@@ -49,7 +49,8 @@ public class DiaryController {
 
     @PostMapping("/updateDiary")
     @ApiOperation("日记属性的更新")
-    public RespBean updateDiary(Diary diary) {
+    public RespBean updateDiary(
+            @RequestBody  Diary diary) {
         if (diary == null || diary.getUserId() == null) {
             return RespBean.result(DiaryEnum.GET_PARAM_FAILURE());
         }
@@ -73,9 +74,18 @@ public class DiaryController {
     @GetMapping("/getDiaryByDate")
     @ApiOperation("根据日期获取用户的日记")
     public RespBean getDiaryByDate(
-            @ApiParam("创建日期，格式yyyyMMDD") String createDate, String userId) {
+            @ApiParam("创建日期，格式yyyy-MM-DD") String createDate, String userId) {
         return RespBean.result(diaryService.findByDate(createDate, userId));
     }
+
+
+    @GetMapping("/getDiaryByMonth")
+    @ApiOperation("根据月份获取用户的日记")
+    public RespBean getDiaryByMonth(String userId,
+                                    @ApiParam("月份 格式为 yyyy-MM-DD") String createMonth){
+        return RespBean.result(diaryService.findByMonth(userId,createMonth));
+    }
+
 
 
     @GetMapping("/getListBySquare")
@@ -96,6 +106,14 @@ public class DiaryController {
             @ApiParam("每页条数") @RequestParam(defaultValue = "10") int pageSize) {
 
         return RespBean.result(diaryService.findListByOtherSide(userId, pageNum, pageSize));
+    }
+
+    @GetMapping("/getListByOtherSideWithDate")
+    @ApiOperation("根据日期获取对方的日记")
+    public RespBean getListByOtherSideWithDate(String userId,
+                                               @ApiParam("月份 格式为 yyyy-MM-dd") String createMonth){
+        return  RespBean.result(diaryService.getListByOtherSideWithDate(userId,createMonth));
+
     }
 
 

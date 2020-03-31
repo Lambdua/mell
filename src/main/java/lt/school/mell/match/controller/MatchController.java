@@ -8,10 +8,7 @@ import lt.school.mell.common.entity.MatchDemand;
 import lt.school.mell.common.enums.BaseEnum;
 import lt.school.mell.match.service.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author liangtao
@@ -26,7 +23,9 @@ public class MatchController {
 
     @PostMapping("/startMatch")
     @ApiOperation("开启匹配")
-    public RespBean startMatch(@ApiParam("id") String userId, MatchDemand matchDemand) {
+    public RespBean startMatch(@ApiParam("id")
+                                           @RequestParam String userId,
+                               @RequestBody MatchDemand matchDemand) {
         BaseEnum result = matchService.startMatch(userId,matchDemand);
         return RespBean.result(result);
     }

@@ -22,11 +22,11 @@ public class UsersStateEnum<T> extends BaseEnum<T> {
     }
 
     public static BaseEnum Match_HAVE() {
-        return new BaseEnum(-303, false, "用户以匹配", null);
+        return new BaseEnum(303, false, "用户以匹配", null);
     }
 
     public static BaseEnum WANT_HAVE() {
-        return new BaseEnum(-304, false, "用户以申请匹配特定人", null);
+        return new BaseEnum(304, false, "用户以申请匹配特定人", null);
     }
 
     public static <T> BaseEnum LOGIN_SUCCESS(T data) {
@@ -39,7 +39,7 @@ public class UsersStateEnum<T> extends BaseEnum<T> {
     }
 
     public static BaseEnum NULL_MATCH_USERS() {
-        return new BaseEnum(-305, true, "尚未有匹配用户", null);
+        return new BaseEnum(305, true, "尚未有匹配用户", null);
     }
 
 

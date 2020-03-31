@@ -101,6 +101,6 @@ swagger2:
   enable: true
 
 pagehelper:
-  reasonable: true
+  reasonable: false
 #  support-methods-arguments: true
 

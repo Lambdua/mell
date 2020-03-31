@@ -14,11 +14,13 @@ import lt.school.mell.common.entity.URelate;
 import lt.school.mell.common.mapper.DiaryMapper;
 import lt.school.mell.common.mapper.URelateMapper;
 import lt.school.mell.common.mapper.UsersMapper;
+import lt.school.mell.common.utils.DateUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -48,7 +50,9 @@ public class DiaryService {
             //save
             try {
                 int insert = diaryMapper.insert(entity);
-                return DiaryEnum.SAVE_SUCCESS();
+
+                Diary diary = diaryMapper.selectOne(Wrappers.lambdaQuery(Diary.class).eq(Diary::getUserId, entity.getUserId()).apply(" to_char(create_date,'yyyy-MM-dd') = {0}", DateUtils.formatDate(entity.getCreateDate(), "yyyy-MM-dd")));
+                return DiaryEnum.SAVE_SUCCESS(diary);
             } catch (Exception e) {
                 e.printStackTrace();
                 return DiaryEnum.OPERATION_FAILURE();
@@ -57,7 +61,7 @@ public class DiaryService {
             //update
             try {
                 int update = diaryMapper.update(entity, new UpdateWrapper<Diary>().lambda().eq(Diary::getId, entity.getId()));
-                return DiaryEnum.UPDATE_SUCCESS();
+                return DiaryEnum.UPDATE_SUCCESS(entity);
             } catch (Exception e) {
                 e.printStackTrace();
                 return DiaryEnum.OPERATION_FAILURE();
@@ -127,5 +131,36 @@ public class DiaryService {
             return DiaryEnum.GET_SUCCESS((Page) diaryList);
         }
 
+    }
+
+    public BaseEnum findByMonth(String userId, String createMonth) {
+        List<Diary> diaries = diaryMapper.selectList(new QueryWrapper<Diary>().lambda()
+                .eq(Diary::getUserId, userId)
+                .and(i -> i.apply(" to_char(create_date,'yyyy-MM') = {0}", createMonth.substring(0, 7))));
+        if (diaries != null) {
+            return BaseEnum.GET_SUCCESS(diaries);
+        } else {
+            return DiaryEnum.QUERY_NULL();
+        }
+    }
+
+    public BaseEnum getListByOtherSideWithDate(String userId, String createMonth) {
+        URelate uRelate = uRelateMapper.selectOne(Wrappers.lambdaQuery(URelate.class)
+                .eq(URelate::getUserId1, userId)
+                .or().eq(URelate::getUserId2, userId));
+
+        if (uRelate == null) {
+            return UsersStateEnum.NULL_MATCH_USERS();
+        } else {
+            List<Diary> diaries = diaryMapper.selectList(new QueryWrapper<Diary>().lambda()
+                    .eq(Diary::getUserId, uRelate.getUserId1().equals(userId) ? uRelate.getUserId2() : uRelate.getUserId1())
+                    .in(Diary::getOpenLevel, Arrays.asList(1, 3))
+                    .and(i -> i.apply(" to_char(create_date,'yyyy-MM') = {0}", createMonth.substring(0, 7))));
+            if (diaries != null) {
+                return BaseEnum.GET_SUCCESS(diaries);
+            } else {
+                return DiaryEnum.QUERY_NULL();
+            }
+        }
     }
 }

@@ -27,8 +27,8 @@ public class SquareController {
 
     @GetMapping("/getSquare")
     @ApiOperation("获取广场日记,和评论")
-    public RespBean getSquare(String userId, int pageNum, int pageSize) {
-        return RespBean.result(squareService.getSquares(userId, pageNum, pageSize));
+    public RespBean getSquare( int pageNum, int pageSize) {
+        return RespBean.result(squareService.getSquares( pageNum, pageSize));
     }
 
 

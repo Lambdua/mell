@@ -42,7 +42,7 @@ public class MatchService {
             users.setMatchFlag("2");
 //            updateUsers.setMatchFlag("2");
             int update = usersMapper.updateById(users);
-            return UsersStateEnum.NULL_MATCH_USERS();
+            return UsersStateEnum.Match_HAVE();
         }
 
         //没有开启匹配,但是有想匹配的对象

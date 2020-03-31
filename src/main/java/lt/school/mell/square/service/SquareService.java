@@ -1,17 +1,20 @@
 package lt.school.mell.square.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import lt.school.mell.common.entity.Diary;
 import lt.school.mell.common.entity.DiaryComment;
+import lt.school.mell.common.entity.Users;
 import lt.school.mell.common.enums.BaseEnum;
 import lt.school.mell.common.mapper.DiaryCommentMapper;
-import lt.school.mell.diary.service.DiaryService;
+import lt.school.mell.common.mapper.DiaryMapper;
+import lt.school.mell.common.mapper.UsersMapper;
 import lt.school.mell.square.entity.Square;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,19 +26,29 @@ public class SquareService {
     @Autowired
     DiaryCommentMapper diaryCommentMapper;
     @Autowired
-    DiaryService diaryService;
+    DiaryMapper diaryMapper;
+//    DiaryService diaryService;
+    @Autowired
+//    UsersService usersService;
+            UsersMapper usersMapper;
 
 
-    public BaseEnum<List<Square>> getSquares(String userid, int pageNum, int pageSize) {
-        List<Square> squares = new ArrayList<>();
+    public BaseEnum<List<Square>> getSquares(int pageNum, int pageSize) {
+        Page<Square> squares = new Page<>();
         //获取日记
-        Page<Diary> diaryPages = diaryService.findListBySquare(pageNum, pageSize).getData();
+        PageHelper.offsetPage(pageNum, pageSize);
+        Page<Diary> diaries = (Page<Diary>) diaryMapper.selectList(new QueryWrapper<Diary>().lambda()
+                .eq(Diary::getOpenLevel, 2)
+                .or().eq(Diary::getOpenLevel, 3));
         //遍历获取对应的评论
-        for (Diary diary : diaryPages) {
+        Users users;
+        for (Diary diary : diaries) {
             List<DiaryComment> diaryComments = diaryCommentMapper.selectList(Wrappers.lambdaQuery(DiaryComment.class)
                     .eq(DiaryComment::getDiaryId, diary.getId())
                     .orderByDesc(DiaryComment::getCreateDate));
-            squares.add(new Square(diary, diaryComments));
+
+            users = usersMapper.selectById(diary.getUserId());
+            squares.add(new Square(users.getNickName(), users.getAvatar(), diary, diaryComments));
         }
         return BaseEnum.GET_SUCCESS(squares);
     }
@@ -46,8 +59,6 @@ public class SquareService {
         diaryComment.setCommentContent(comment);
 //        StringEscapeUtils
 //        StringEscapeUtils
-
-
         return null;
     }
 }
