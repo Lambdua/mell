@@ -1,6 +1,7 @@
 package lt.school.mell.common.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -10,47 +11,46 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * (UserServeyCollect)实体类
+ * (ServeyResult)实体类
  *
  * @author liangtao
- * @since 2020-03-16 18:36:47
+ * @since 2020-03-16 18:36:45
  */
 @ApiModel
 @Data
-public class UserServeyCollect implements Serializable {
-    private static final long serialVersionUID = 310705539248049742L;
+public class SurveyResult implements Serializable {
+    private static final long serialVersionUID = -75943548124928697L;
     private String id;
 
-    @ApiModelProperty("用户表id")
-    private String userId;
+    @ApiModelProperty("测试结果的类型")
+    private String type;
 
-    @ApiModelProperty("测试问卷id")
-    private String surveyId;
+    @ApiModelProperty("结果的简短描述")
+    private String description;
 
-   /* @ApiModelProperty("测试问卷名")
-    @TableField(exist = false)
-    private String surveyName;*/
+    @ApiModelProperty("结果的详细描述")
+    private String reachDescText;
 
-    @ApiModelProperty("测试问卷结果type类型")
-    private String surveyResultType;
-
-    @ApiModelProperty("该结果得分值")
-    private Integer resultScore;
-
-    @ApiModelProperty("测试组id")
-    private String groupId;
-
-    @ApiModelProperty(value = "逻辑删除标志 0假1真",hidden = true)
+    @ApiModelProperty(value = "逻辑删除标志 0假1真", hidden = true)
+    @JsonIgnore
     private String delFlag;
+
+    @ApiModelProperty("surveyName表关联id")
+    private String surveyNameId;
+
+    @ApiModelProperty("问卷名称")
+    private String surveyName;
 
     @ApiModelProperty("创建日期")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonIgnore
     private Date createDate;
 
     @ApiModelProperty("修改日期")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonIgnore
     private Date updateDate;
 
 }

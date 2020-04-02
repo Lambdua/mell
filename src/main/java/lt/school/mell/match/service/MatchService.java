@@ -46,7 +46,7 @@ public class MatchService {
         }
 
         //没有开启匹配,但是有想匹配的对象
-        if (StringUtils.isBlank(users.getWantUid())) {
+        if (StringUtils.isNotBlank(users.getWantUid())) {
             return UsersStateEnum.WANT_HAVE();
         } else {
 

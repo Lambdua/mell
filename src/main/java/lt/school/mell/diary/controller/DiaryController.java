@@ -5,10 +5,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lt.school.mell.common.ajaxBean.RespBean;
+import lt.school.mell.common.entity.Diary;
 import lt.school.mell.common.enums.BaseEnum;
 import lt.school.mell.common.enums.DiaryEnum;
 import lt.school.mell.diary.service.DiaryService;
-import lt.school.mell.common.entity.Diary;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +36,20 @@ public class DiaryController {
         return RespBean.result(diaryService.saveOrUpdate(diary));
     }
 
+
+  /*  @Autowired
+    PsychologicalKnowledgeMapper testMapper;
+    @PostMapping("/saveDiary")
+    public RespBean saveTest(
+            @RequestBody  Diary diary){
+        PsychologicalKnowledge psychologicalKnowledge=new PsychologicalKnowledge();
+        psychologicalKnowledge.setDelFlag("0");
+        psychologicalKnowledge.setTitle(diary.getTitle());
+        psychologicalKnowledge.setContent(diary.getDiaryContent());
+        testMapper.insert(psychologicalKnowledge);
+        return RespBean.result(BaseEnum.SAVE_SUCCESS());
+    }
+*/
 
     @DeleteMapping("/delete")
     @ApiOperation("日记的删除")

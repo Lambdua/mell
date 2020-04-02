@@ -36,6 +36,9 @@ public class SurveyAnswer implements Serializable {
     @ApiModelProperty("surveyName表关联id")
     private String surveyNameId;
 
+    @ApiModelProperty("测试结果对应的type")
+    private String questionScore;
+
     @ApiModelProperty("创建日期")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")

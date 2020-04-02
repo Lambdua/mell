@@ -1,0 +1,24 @@
+{
+  "name" : "PsylogicKnowledgeType",
+  "comment" : null,
+  "fullColumn" : [ {
+    "name" : "id",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "type",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "lt.school.mell.common",
+  "savePath" : "./src/main/java/lt/school/mell/common",
+  "saveModelName" : "mell"
+}

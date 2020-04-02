@@ -39,7 +39,8 @@ public class SquareService {
         PageHelper.offsetPage(pageNum, pageSize);
         Page<Diary> diaries = (Page<Diary>) diaryMapper.selectList(new QueryWrapper<Diary>().lambda()
                 .eq(Diary::getOpenLevel, 2)
-                .or().eq(Diary::getOpenLevel, 3));
+                .or().eq(Diary::getOpenLevel, 3)
+                .orderByDesc(Diary::getStarCount));
         //遍历获取对应的评论
         Users users;
         for (Diary diary : diaries) {

@@ -1,5 +1,6 @@
 package lt.school.mell.common.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -8,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * (SurveyQuestion)实体类
@@ -43,4 +45,7 @@ public class SurveyQuestion implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date updateDate;
 
+    @ApiModelProperty("问题对应的回答")
+    @TableField(exist = false)
+    private List<SurveyAnswer> surveyAnswerList;
 }

@@ -19,6 +19,8 @@ public class MatchDemand implements Serializable {
     //用户UserId
     private String id;
 
+    private String userId;
+
     @ApiModelProperty("最大年龄 默认100")
     private Integer maxAge;
 
