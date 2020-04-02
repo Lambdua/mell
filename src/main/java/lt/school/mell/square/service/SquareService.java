@@ -27,10 +27,8 @@ public class SquareService {
     DiaryCommentMapper diaryCommentMapper;
     @Autowired
     DiaryMapper diaryMapper;
-//    DiaryService diaryService;
     @Autowired
-//    UsersService usersService;
-            UsersMapper usersMapper;
+    UsersMapper usersMapper;
 
 
     public BaseEnum<List<Square>> getSquares(int pageNum, int pageSize) {
@@ -58,8 +56,6 @@ public class SquareService {
     public BaseEnum saveComment(String userId, String comment, String diaryId) {
         DiaryComment diaryComment = new DiaryComment();
         diaryComment.setCommentContent(comment);
-//        StringEscapeUtils
-//        StringEscapeUtils
         return null;
     }
 }
