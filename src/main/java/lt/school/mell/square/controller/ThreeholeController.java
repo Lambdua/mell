@@ -1,5 +1,6 @@
 package lt.school.mell.square.controller;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lt.school.mell.common.ajaxBean.RespBean;
 import lt.school.mell.common.entity.Threehole;
@@ -12,8 +13,8 @@ import org.springframework.web.bind.annotation.*;
  * @Date 2020/4/2
  **/
 @RestController
-@RequestMapping("" +
-        "/threehole")
+@RequestMapping("/threehole")
+@Api(tags = "广场模块")
 public class ThreeholeController {
     @Autowired
     ThreeholeService threeholeService;

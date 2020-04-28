@@ -58,7 +58,7 @@ public class Swagger2Config {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("meill系统接口文档")
+                .title("mell心灵之窗系统接口文档")
                 .description("初版本")
                 .termsOfServiceUrl("https://github.com/Lambdua/mell")
                 .version("1.0")

@@ -87,8 +87,14 @@ public class UserController {
 
     @PostMapping("updateUsers")
     @ApiOperation("用户信息的更新,需要用户名和id")
-    public RespBean updateUsers(@RequestBody Users users){
+    public RespBean updateUsers(@RequestBody Users users) {
         BaseEnum baseEnum = usersService.saveOrUpdate(users);
         return RespBean.result(baseEnum);
+    }
+
+    @GetMapping("getOtherInfo")
+    @ApiOperation("获取对方用户的信息")
+    public RespBean getOtherInfo(@RequestParam String userId) {
+        return RespBean.result(usersService.getOtherInfo(userId));
     }
 }

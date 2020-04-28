@@ -1,5 +1,6 @@
 package lt.school.mell.survey.controller;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lt.school.mell.common.ajaxBean.RespBean;
 import lt.school.mell.common.entity.UserServeyCollect;
@@ -16,6 +17,7 @@ import java.util.List;
  **/
 @RestController
 @RequestMapping("/survey")
+@Api(tags = "心理模块")
 public class SurveyController {
 
     @Autowired
@@ -25,8 +27,8 @@ public class SurveyController {
 
     @GetMapping("getSurveyList")
     @ApiOperation(("获取测试问卷列表"))
-    public RespBean getSurveyList(@RequestParam String type) {
-        return RespBean.result(surveyService.getSurveyList(type));
+    public RespBean getSurveyList() {
+        return RespBean.result(surveyService.getSurveyList());
     }
 
     @GetMapping("getUserSurveyResult")

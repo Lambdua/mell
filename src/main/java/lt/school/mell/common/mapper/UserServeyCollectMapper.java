@@ -13,6 +13,6 @@ import java.util.List;
  **/
 @Mapper
 public interface UserServeyCollectMapper extends BaseMapper<UserServeyCollect> {
-    @Select("select group_id as groupId from USER_SERVEY_COLLECT where user_id='${userid}' group by group_id")
+    @Select("select group_id as groupId from USER_SERVEY_COLLECT where user_id='${userid}' group by group_id,create_date order by create_date desc")
     List<String> selectGroups(String userId);
 }

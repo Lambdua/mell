@@ -54,8 +54,22 @@ public class SquareService {
 
 
     public BaseEnum saveComment(String userId, String comment, String diaryId) {
+        Users users = null;
+        try {
+            users = usersMapper.selectById(userId);
+            if (users == null)
+                return BaseEnum.OPERATION_FAILURE();
+        } catch (Exception e) {
+            return BaseEnum.OPERATION_FAILURE();
+        }
+
         DiaryComment diaryComment = new DiaryComment();
         diaryComment.setCommentContent(comment);
-        return null;
+        diaryComment.setDiaryId(diaryId);
+        diaryComment.setUserId(userId);
+        diaryComment.setParentId("");
+        diaryComment.setUserNickName(users.getNickName());
+        diaryCommentMapper.insert(diaryComment);
+        return BaseEnum.SAVE_SUCCESS();
     }
 }

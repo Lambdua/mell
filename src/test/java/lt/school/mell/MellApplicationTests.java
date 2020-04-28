@@ -1,22 +1,76 @@
 package lt.school.mell;
 
+import lt.school.mell.common.entity.SurveyAnswer;
+import lt.school.mell.common.entity.SurveyQuestion;
+import lt.school.mell.common.mapper.SurveyAnswerMapper;
+import lt.school.mell.common.mapper.SurveyNameMapper;
+import lt.school.mell.common.mapper.SurveyQuestionMapper;
+import lt.school.mell.common.mapper.SurveyResultMapper;
+import lt.school.mell.util.POIUtils;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import static lt.school.mell.util.POIUtils.getValue;
 
 @SpringBootTest
 class MellApplicationTests {
+    @Autowired
+    SurveyQuestionMapper surveyQuestionMapper;
+    @Autowired
+    SurveyAnswerMapper answerMapper;
+    @Autowired
+    SurveyResultMapper resultMapper;
+    @Autowired
+    SurveyNameMapper surveyNameMapper;
+
+
+//    private static SurveyName surveyName;
+//    String file = "C:\\Users\\liangtao\\Desktop\\问卷批量插入表.xlsx";
+    String file = "C:\\Users\\liangtao\\Desktop\\MBTI_1 (2).xlsx";
+
+
 
     @Test
-    void contextLoads() {
-    }
+    void insertSurvey() throws IOException {
 
-    public static void main(String[] args) {
-        int j = 73;
-        for (int i = 133; i < 200;) {
-            System.out.println("update survey_answer set QUESTION_SCORE='绿' where id='" + (i++) + "';");
-            System.out.println("update survey_answer set QUESTION_SCORE='黄' where id='" + (i++) + "';");
-            System.out.println("update survey_answer set QUESTION_SCORE='蓝' where id='" + (i++) + "';");
-            System.out.println("update survey_answer set QUESTION_SCORE='红' where id='" + (i++) + "';");
+        File locationFile = new File(file);
+        FileInputStream fs = new FileInputStream(locationFile);
+        Workbook workbok = POIUtils.getWorkbok(fs, locationFile);
+        Sheet sheet = workbok.getSheetAt(0);
+        //插入到问题表中
+        for (Row row : sheet) {
+            if (row.getRowNum() == 0) {
+                continue;
+            }
+            SurveyQuestion surveyQuestion = new SurveyQuestion();
+            surveyQuestion.setId(Double.valueOf(getValue(row.getCell(0))+"").intValue()+"");
+            surveyQuestion.setQuestion(String.valueOf(getValue(row.getCell(2))));
+            surveyQuestion.setAnswerType("0");
+            surveyQuestion.setSurveyNameId("5");
+            surveyQuestionMapper.insert(surveyQuestion);
+        }
+
+        Sheet answerSheet = workbok.getSheetAt(1);
+        for(Row row:answerSheet){
+            if (row.getRowNum() == 0) {
+                continue;
+            }
+            SurveyAnswer answer=new SurveyAnswer();
+            answer.setQuestionId(Double.valueOf(getValue(row.getCell(0))+"").intValue()+"");
+            answer.setChoicetext(String.valueOf(getValue(row.getCell(1))));
+            answer.setSort((Double.valueOf(getValue(row.getCell(2))+"").intValue()));
+            answer.setQuestionScore(String.valueOf(getValue(row.getCell(3))));
+            answer.setSurveyNameId("5");
+            answerMapper.insert(answer);
         }
     }
+
 }

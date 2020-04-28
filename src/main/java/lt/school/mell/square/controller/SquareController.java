@@ -5,10 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import lt.school.mell.common.ajaxBean.RespBean;
 import lt.school.mell.square.service.SquareService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author liangtao
@@ -27,20 +24,20 @@ public class SquareController {
 
     @GetMapping("/getSquare")
     @ApiOperation("获取广场日记,和评论")
-    public RespBean getSquare( int pageNum, int pageSize) {
-        return RespBean.result(squareService.getSquares( pageNum, pageSize));
+    public RespBean getSquare(int pageNum, int pageSize) {
+        return RespBean.result(squareService.getSquares(pageNum, pageSize));
     }
-
 
 
     @PostMapping("/comment")
     @ApiOperation("评论")
-    public RespBean comment(String userId,String comment,String diaryId){
-
-        return RespBean.result(squareService.saveComment(userId,comment,diaryId));
+    public RespBean comment(
+            @RequestParam String userId,
+            @RequestParam String comment,
+            @RequestParam String diaryId) {
+        return RespBean.result(squareService.saveComment(userId, comment, diaryId));
 
     }
-
 
 
 }

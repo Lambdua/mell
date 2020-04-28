@@ -13,12 +13,14 @@ import java.util.List;
  **/
 @Data
 public class SurveyResultByUser {
-    String surveyName;
+    String title;
+    String surveyType;
     List<UserServeyCollect> userServeyCollectList;
     List<SurveyResult> SurveyResultList;
 
-    public SurveyResultByUser(String surveyName, List<UserServeyCollect> userServeyCollectList, List<SurveyResult> surveyResultList) {
-        this.surveyName = surveyName;
+    public SurveyResultByUser(String title, String surveyType,List<UserServeyCollect> userServeyCollectList, List<SurveyResult> surveyResultList) {
+        this.title = title;
+        this.surveyType=surveyType;
         this.userServeyCollectList = userServeyCollectList;
         SurveyResultList = surveyResultList;
     }

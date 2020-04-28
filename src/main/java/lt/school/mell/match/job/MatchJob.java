@@ -15,7 +15,10 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -39,9 +42,9 @@ public class MatchJob {
     UsersHobbyMapper usersHobbyMapper;
 
     /*
-        每隔三小时执行一次
+        每天十点二十执行一次
      */
-    @Scheduled(cron = "* * */3 * * ? ")
+    @Scheduled(cron = "0 20 10 * * ? ")
     public void matchScheduled() {
         log.info("===================匹配开始=======================");
 
@@ -52,13 +55,13 @@ public class MatchJob {
 
         Map<Users, MatchDemand> usersMap = new HashMap<>();
         usersList.forEach(u -> {
-            MatchDemand matchDemand = matchDemandMapper.selectById(u.getId());
+            MatchDemand matchDemand = matchDemandMapper.selectOne(Wrappers.lambdaQuery(MatchDemand.class).eq(MatchDemand::getUserId, u.getId()));
             usersMap.put(u, matchDemand);
         });
 
-        //三遍轮询，100%  50%  0%
+        //三遍轮询，高匹配度 中匹配度  高优先度
         Users matchUsers = null;
-        //100%匹配度
+        //高匹配度
         for (Users users : usersList) {
             matchUsers = null;
             if (usersMap.containsKey(users)) {
@@ -68,7 +71,7 @@ public class MatchJob {
                         .eq(UsersHobby::getUsersId, usersId));
 
                 //获取基本相同爱好的
-                matchUsers = getPercent100(users, usersMap, usersHobbies);
+                matchUsers = getHightMatch(users, usersMap, usersHobbies);
 
                 if (matchUsers != null) {
                     log.info(usersId + " 匹配到100%要求");
@@ -78,17 +81,15 @@ public class MatchJob {
         }
 
 
-        //50%
+        //中匹配度
         usersList = new ArrayList<>(usersMap.keySet());
         for (Users users : usersList) {
             matchUsers = null;
             if (usersMap.containsKey(users)) {
-                //获取该用户的兴趣特征
                 String usersId = users.getId();
                 List<UsersHobby> usersHobbies = usersHobbyMapper.selectList(Wrappers.lambdaQuery(UsersHobby.class)
                         .eq(UsersHobby::getUsersId, usersId));
-                //获取基本相同爱好的
-                matchUsers = getPercent50(users, usersMap, usersHobbies);
+                matchUsers = getMiddleMatch(users, usersMap, usersHobbies);
                 if (matchUsers != null) {
                     log.info(usersId + " 匹配到50%要求");
                     matchSuccessHandler(users, matchUsers, usersMap);
@@ -97,21 +98,19 @@ public class MatchJob {
         }
 
 
-        //0%
+        //高优先度
         usersList = new ArrayList<>(usersMap.keySet());
         for (Users users : usersList) {
             matchUsers = null;
             if (usersMap.containsKey(users)) {
-                //获取该用户的匹配条件
                 MatchDemand matchDemand = usersMap.get(users);
                 Integer sort = matchDemand.getSort();
                 if (sort < 3) {
                     matchDemand.setSort(sort + 1);
                     matchDemandMapper.updateById(matchDemand);
                 } else {
-                    //获取该用户的兴趣特征
                     String usersId = users.getId();
-                    matchUsers = getPercent0BySex(users, matchDemand, usersMap);
+                    matchUsers = getpriorityMatch(users, matchDemand, usersMap);
                     if (matchUsers != null) {
                         log.info(usersId + " 随机匹配");
                         matchSuccessHandler(users, matchUsers, usersMap);
@@ -126,6 +125,7 @@ public class MatchJob {
 
     @Transactional(readOnly = false)
     void matchSuccessHandler(Users users, Users matchUsers, Map<Users, MatchDemand> usersMap) {
+
         //清除map中两个users对象
         usersMap.remove(users);
         if (usersMap.containsKey(matchUsers)) {
@@ -133,8 +133,9 @@ public class MatchJob {
         }
 
         //删除matchDemand
-        matchDemandMapper.deleteById(usersMap.get(users));
-        matchDemandMapper.deleteById(usersMap.get(matchUsers));
+        matchDemandMapper.delete(Wrappers.lambdaQuery(MatchDemand.class)
+                .eq(MatchDemand::getUserId, users.getId())
+                .or().eq(MatchDemand::getUserId, matchUsers.getId()));
 
         //更新两个users的状态
         users.relateBuildHandler();
@@ -157,11 +158,10 @@ public class MatchJob {
         uRelate.setUserId1(usersId);
         uRelate.setUserId2(matchUsersId);
         uRelateMapper.insert(uRelate);
-
     }
 
-    Users getPercent0BySex(Users users, MatchDemand matchDemand, Map<Users, MatchDemand> usersMap) {
-        AtomicReference<Users> result = null;
+    Users getpriorityMatch(Users users, MatchDemand matchDemand, Map<Users, MatchDemand> usersMap) {
+        AtomicReference<Users> result = new AtomicReference<>();
         String sex = matchDemand.getSex();
         usersMap.forEach((k, v) -> {
             //查询不是自己，且优先级大于3,符合性别要求的
@@ -170,14 +170,13 @@ public class MatchJob {
             }
         });
 
-
         return result.get();
     }
 
     @Transactional(readOnly = false)
-    Users getPercent50(Users users, Map<Users, MatchDemand> usersMap, List<UsersHobby> usersHobbies) {
+    Users getMiddleMatch(Users users, Map<Users, MatchDemand> usersMap, List<UsersHobby> usersHobbies) {
         MatchDemand matchDemand = usersMap.get(users);
-        AtomicReference<Users> atomicUsers = null;
+        AtomicReference<Users> atomicUsers = new AtomicReference<>();
         //
         usersMap.forEach((k, v) -> {
             if (!k.equals(users)
@@ -192,9 +191,9 @@ public class MatchJob {
         return atomicUsers.get();
     }
 
-    Users getPercent100(Users users, Map<Users, MatchDemand> usersMap, List<UsersHobby> usersHobbies) {
+    Users getHightMatch(Users users, Map<Users, MatchDemand> usersMap, List<UsersHobby> usersHobbies) {
         MatchDemand matchDemand = usersMap.get(users);
-        AtomicReference<Users> atomicUsers = null;
+        AtomicReference<Users> atomicUsers = new AtomicReference<>();
         //
         usersMap.forEach((k, v) -> {
             if (!k.equals(users)

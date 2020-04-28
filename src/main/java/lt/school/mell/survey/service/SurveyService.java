@@ -41,23 +41,27 @@ public class SurveyService {
 
         List<UserServeyCollect> userList = null;
         List<SurveyResult> surveyResultList = null;
-        String surveyName = null;
+        SurveyName surveyName=null;
         for (String group : groups) {
             userList = userServeyCollectMapper.selectList(Wrappers.lambdaQuery(UserServeyCollect.class)
                     .eq(UserServeyCollect::getUserId, userId)
                     .eq(UserServeyCollect::getGroupId, group)
-                    .orderByDesc(UserServeyCollect::getResultScore));
+                    .orderByDesc(UserServeyCollect::getResultScore)
+                    .orderByDesc(UserServeyCollect::getCreateDate));
             String surveyId = userList.get(0).getSurveyId();
-            surveyName = surveyNameMapper.selectById(surveyId).getTitle();
-            surveyResultList = resultMapper.selectList(Wrappers.lambdaQuery(SurveyResult.class).eq(SurveyResult::getSurveyNameId, surveyId));
-            resultList.add(new SurveyResultByUser(surveyName, userList, surveyResultList));
+             surveyName= surveyNameMapper.selectById(surveyId);
+            surveyResultList = resultMapper.selectList(Wrappers.lambdaQuery(SurveyResult.class).eq(SurveyResult::getSurveyNameId, surveyId).orderByDesc(SurveyResult::getCreateDate));
+            resultList.add(new SurveyResultByUser(surveyName.getTitle(), surveyName.getType(),userList, surveyResultList));
         }
         return BaseEnum.GET_SUCCESS(resultList);
     }
 
-    public BaseEnum getSurveyList(String type) {
+    public BaseEnum getSurveyList() {
+        return BaseEnum.GET_SUCCESS(surveyNameMapper.selectList(null));
+/*
         return BaseEnum.GET_SUCCESS(surveyNameMapper.selectList(Wrappers.lambdaQuery(SurveyName.class)
                 .eq(SurveyName::getType, type)));
+*/
     }
 
 
