@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: lt.school.mell.MellApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in lt.school.mell.MellApplicationTests
+insertSurvey  Time elapsed: 0.011 s  <<< ERROR!
+java.io.FileNotFoundException: C:\Users\liangtao\Desktop\MBTI_1 (2).xlsx (系统找不到指定的文件。)
+	at lt.school.mell.MellApplicationTests.insertSurvey(MellApplicationTests.java:45)
+

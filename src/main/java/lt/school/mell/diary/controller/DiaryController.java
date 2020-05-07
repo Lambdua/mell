@@ -37,7 +37,8 @@ public class DiaryController {
     }
 
 
-   /* @Autowired
+/*
+    @Autowired
     PsychologicalKnowledgeMapper testMapper;
     @PostMapping("/saveDiary")
     public RespBean saveTest(
@@ -48,7 +49,8 @@ public class DiaryController {
         psychologicalKnowledge.setContent(diary.getDiaryContent());
         testMapper.insert(psychologicalKnowledge);
         return RespBean.result(BaseEnum.SAVE_SUCCESS());
-    }*/
+    }
+*/
 
     @DeleteMapping("/delete")
     @ApiOperation("日记的删除")

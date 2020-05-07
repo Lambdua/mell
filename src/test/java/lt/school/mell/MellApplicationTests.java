@@ -1,24 +1,11 @@
 package lt.school.mell;
 
-import lt.school.mell.common.entity.SurveyAnswer;
-import lt.school.mell.common.entity.SurveyQuestion;
 import lt.school.mell.common.mapper.SurveyAnswerMapper;
 import lt.school.mell.common.mapper.SurveyNameMapper;
 import lt.school.mell.common.mapper.SurveyQuestionMapper;
 import lt.school.mell.common.mapper.SurveyResultMapper;
-import lt.school.mell.util.POIUtils;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-
-import static lt.school.mell.util.POIUtils.getValue;
 
 @SpringBootTest
 class MellApplicationTests {
@@ -34,12 +21,11 @@ class MellApplicationTests {
 
 //    private static SurveyName surveyName;
 //    String file = "C:\\Users\\liangtao\\Desktop\\问卷批量插入表.xlsx";
-    String file = "C:\\Users\\liangtao\\Desktop\\MBTI_1 (2).xlsx";
+//    String file = "C:\\Users\\liangtao\\Desktop\\MBTI_1 (2).xlsx";
 
 
 
-    @Test
-    void insertSurvey() throws IOException {
+  /*  void insertSurvey() throws IOException {
 
         File locationFile = new File(file);
         FileInputStream fs = new FileInputStream(locationFile);
@@ -71,6 +57,6 @@ class MellApplicationTests {
             answer.setSurveyNameId("5");
             answerMapper.insert(answer);
         }
-    }
+    }*/
 
 }
